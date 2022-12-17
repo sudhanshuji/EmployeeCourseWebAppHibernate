@@ -12,10 +12,9 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import employee.app.dao.util.CourseDao;
-import employee.app.dao.util.CourseDaoImpl;
+import employee.app.dao.CourseDao;
+import employee.app.dao.CourseDaoImpl;
 import employee.app.entity.Course;
-import employee.app.entity.CourseStatus;
 import employee.app.entity.Employee;
 import employee.app.entity.EmployeeCourse;
 import employee.app.exceptions.DaoException;
@@ -28,6 +27,8 @@ public class CourseDaoTest {
 	public static void instatntiate() {
 		courseImpl = new CourseDaoImpl();
 	}
+	
+	
 
 	@Test
 	public void test1AddCourse() {
@@ -59,9 +60,9 @@ public class CourseDaoTest {
 	}
 
 	/*
-	 * @Test public void test2GetAllCourse() { // CourseDao courseImpl = new
-	 * CourseDaoImpl(); ArrayList<String> courseList = new ArrayList();
-	 * courseList.add("SpringBoot"); courseList.add("COBOL");
+	 * @Test public void test2GetAllCourse() { // CourseDao courseImpl =
+	 * newCourseDaoImpl(); ArrayList<String> courseList = new ArrayList();
+	 * courseList.add("SpringBoot"); courseList.add("HTML");
 	 * 
 	 * // Course course = new Course(); // Course course = new Course(102, "COBOL",
 	 * 30, "Mainframe");
@@ -69,7 +70,9 @@ public class CourseDaoTest {
 	 * try { assertEquals(courseList, courseImpl.getAllCourse()); } catch
 	 * (DaoException e) { // TODO Auto-generated catch block e.printStackTrace();
 	 * fail(e.getMessage()); } }
-	 * 
+	 */
+
+	/*
 	 * @Test public void test3DeleteCourse() { // CourseDao courseImpl = new
 	 * CourseDaoImpl(); // Course course = new Course(); // Course course = new
 	 * Course(102, "COBOL", 30, "Mainframe"); try {
@@ -91,8 +94,7 @@ public class CourseDaoTest {
 		Employee emp1 = new Employee(1, "Shyam", "3A");
 		Course course1 = new Course(104, "Springboot", 25, "Java");
 		EmployeeCourse empCourse = new EmployeeCourse("Completed", new Date(), new Date(), course1, emp1);
-		
-		
+
 		try {
 			assertTrue(courseImpl.assignCourseToEmployee(empCourse));
 		} catch (DaoException e) { // TODO Auto-generated catch block
@@ -101,6 +103,30 @@ public class CourseDaoTest {
 		} // fail("Not yet implemented");
 	}
 	
-	
+	@Test
+	public void test6GetAllCourseByDomain() {
+		// CourseDao courseImpl = newCourseDaoImpl();
+		ArrayList<String> courseList = new ArrayList<String>();
+		courseList.add("Springboot");
+		courseList.add("HTML");
+		String domain = "Java";
+		List<String> courseResultList = new ArrayList<String>();
+		try {
+			List<Course> coursesFetched = courseImpl.getAllCourseByDomain(domain);
+//			for(Course c:coursesFetched) {
+//				courseResultList.add(c.getCourseName());
+//				
+//			}
+			assertTrue(coursesFetched.size()>0);
+		} catch (DaoException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		// Course course = new Course();
+		// Course course = new Course(102, "COBOL", 30, "Mainframe");
+
+		
+	}
 
 }

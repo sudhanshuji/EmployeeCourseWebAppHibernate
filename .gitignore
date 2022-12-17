@@ -3,3 +3,6 @@
 /target
 /.settings
 .gitignore.bak
+/Logs
+.log
+.bak
