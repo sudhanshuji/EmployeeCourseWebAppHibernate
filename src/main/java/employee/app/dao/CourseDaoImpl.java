@@ -1,4 +1,4 @@
-package employee.app.dao.util;
+package employee.app.dao;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import employee.app.dao.util.HibernateUtil;
 import employee.app.entity.Course;
 import employee.app.entity.Employee;
 import employee.app.entity.EmployeeCourse;
@@ -30,7 +31,7 @@ public class CourseDaoImpl implements CourseDao {
 			try {
 
 				session.persist(course);
-				//session.save(course);
+				// session.save(course);
 
 				// Hibernate returns the generated Id after save
 				Integer generatedId = course.getCourseId();
@@ -101,8 +102,6 @@ public class CourseDaoImpl implements CourseDao {
 
 		}
 	}
-	
-	
 
 	@Override
 	public boolean assignCourseToEmployee(EmployeeCourse empCourse) throws DaoException {
@@ -110,7 +109,7 @@ public class CourseDaoImpl implements CourseDao {
 		Session session = null;
 		try {
 			session = HibernateUtil.getHibernateSession();
-			
+
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -155,7 +154,7 @@ public class CourseDaoImpl implements CourseDao {
 			e1.printStackTrace();
 		}
 
-		String fetchCourseByDomain = "From Course course where course.domain = " + domain;
+		String fetchCourseByDomain = "From Course  course where course.domain = '" + domain + "'";
 
 		try {
 
@@ -206,7 +205,6 @@ public class CourseDaoImpl implements CourseDao {
 			session.close();
 
 		}
-
 
 	}
 

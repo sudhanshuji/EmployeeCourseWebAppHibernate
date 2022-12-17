@@ -5,8 +5,8 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import employee.app.dao.util.EmployeeDao;
-import employee.app.dao.util.EmployeeDaoImpl;
+import employee.app.dao.EmployeeDao;
+import employee.app.dao.EmployeeDaoImpl;
 import employee.app.exceptions.DaoException;
 
 public class EmployeeDaoTest {

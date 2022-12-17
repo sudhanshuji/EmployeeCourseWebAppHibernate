@@ -1,16 +1,19 @@
-package employee.app.dao.util;
-
-import java.util.List;
+package employee.app.dao;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-import employee.app.entity.Course;
+import employee.app.dao.util.HibernateUtil;
 import employee.app.entity.Employee;
 import employee.app.exceptions.DaoException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class EmployeeDaoImpl implements EmployeeDao {
+
+	private static final Logger LOGGER = LogManager.getLogger(EmployeeDaoImpl.class);
 
 	public EmployeeDaoImpl() {
 		// TODO Auto-generated constructor stub
@@ -21,6 +24,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		Session session = null;
 		try {
 			session = HibernateUtil.getHibernateSession();
+			LOGGER.info("Hibernate session established");
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
@@ -30,10 +34,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		try {
 
 			Query<Employee> query = session.createQuery(fetchEmployeeByEmployeeId, Employee.class);
-			return query.uniqueResult();
+			LOGGER.info("Result fetched from database");
+			Employee employee = query.uniqueResult();
+			LOGGER.debug("Result fetched from DB: " + employee.toString());
+			return employee;
 
 		} catch (HibernateException e) {
-
 
 			throw new DaoException("There was an error while fetching  employee with employee ID " + empId, e);
 

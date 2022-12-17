@@ -16,4 +16,14 @@
 		<url-pattern>/addCourse</url-pattern>
 	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>EmployeeCourseController</servlet-name>
+		<url-pattern>/getCoursesByDomain</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>EmployeeCourseController</servlet-name>
+		<url-pattern>/registerForCourse</url-pattern>
+	</servlet-mapping>
+
 </web-app>

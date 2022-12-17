@@ -1,4 +1,4 @@
-package employee.app.dao.util;
+package employee.app.dao;
 
 import employee.app.entity.Employee;
 import employee.app.exceptions.DaoException;

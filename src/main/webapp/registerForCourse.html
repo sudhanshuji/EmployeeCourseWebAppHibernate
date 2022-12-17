@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration page</title>
+</head>
+<body>
+	<h3>Course Registration</h3>
+	<div>
+		<form action="registerForCourse" method="post">
+			Employee Id: <input type="text" readonly="readonly" name="employeeId"
+				value="1"> <br> <br> <label for="Domain">Choose
+				a domain</label> <select name="domain" id="domain"
+				onchange="fetchCoursesByDomain()">
+				<option value="Java">Java</option>
+				<option value="Mainframe">Mainframe</option>
+				<option value="Dotnet">Dotnet</option>
+				<option value="Devops">Devops</option>
+			</select> <br> <br> <label for="Course">Choose a Course</label> <span
+				id="courses_space"> </span>
+
+			<!-- 
+			<select
+				name="course" id="course" onchange="fetchCoursesByDomain()">
+				<option value="Java">Java</option>
+				<option value="Mainframe">Mainframe</option>
+				<option value="Dotnet">Dotnet</option>
+				<option value="Devops">Devops</option>
+			</select>
+
+ -->
+
+			<!-- 			<br> Course Id: <input type="text" name="courseId"> <br> -->
+
+			<br> <br> Status: <input type="text" name="status"
+				readonly="readonly" value="Requested"> <br> <br> <br>
+			<br> <br> <br> <br> <input type="submit"
+				value="Submit">
+
+		</form>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/registerForCourse.js"></script>
+
+
+</body>
+</html>

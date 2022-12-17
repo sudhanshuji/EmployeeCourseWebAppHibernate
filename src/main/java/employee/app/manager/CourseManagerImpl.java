@@ -4,14 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import employee.app.dao.util.CourseDao;
-import employee.app.dao.util.CourseDaoImpl;
-import employee.app.dao.util.EmployeeDao;
-import employee.app.dao.util.EmployeeDaoImpl;
+import employee.app.dao.CourseDao;
+import employee.app.dao.CourseDaoImpl;
+import employee.app.dao.EmployeeDao;
+import employee.app.dao.EmployeeDaoImpl;
 import employee.app.dto.EmployeeCourseDto;
 import employee.app.entity.Course;
 import employee.app.entity.CourseDomain;
-import employee.app.entity.CourseStatus;
 import employee.app.entity.Employee;
 import employee.app.entity.EmployeeCourse;
 import employee.app.exceptions.DaoException;
@@ -93,6 +92,7 @@ public class CourseManagerImpl implements CourseManager {
 		try {
 			Employee employee = employeeDao.getEmployeeByEmployeeId(empCourseDto.getEmpId());
 			Course course = courseDao.getCourseByCourseId(empCourseDto.getCourseId());
+			
 			EmployeeCourse empCourse = new EmployeeCourse(empCourseDto.getStatus(), new Date(), new Date(), course,
 					employee);
 			result = courseDao.assignCourseToEmployee(empCourse);

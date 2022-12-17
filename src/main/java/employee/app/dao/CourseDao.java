@@ -1,10 +1,8 @@
-package employee.app.dao.util;
+package employee.app.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import employee.app.entity.Course;
-import employee.app.entity.Employee;
 import employee.app.entity.EmployeeCourse;
 import employee.app.exceptions.DaoException;
 
